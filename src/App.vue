@@ -29,44 +29,45 @@
         </div>
       </button>
     </form>
-    
-    <table class="todo-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Label</th>
-          <th>Status</th>
-          <th class="actions">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(todo, index) in todos" :key="index">
-          <td>{{ todo.name }}</td>
-          <td>{{ todo.label }}</td>
-          <td>{{ todoStatus(todo.done) }}</td>
-          <td class="actions">
-            <div class="d-flex">
-              <button @click="deleteTodo(index)" class="btn-delete">
-                <div class="d-flex">
-                  <div><span class="material-icons">delete</span></div>
-                  <div class="pt-5">Delete</div>
-                </div>
-              </button>
-              <button @click="editTodo(index, todo)" class="btn-update">
-                <div class="d-flex">
-                  <div>
-                    <span class="material-icons">{{
-                      editIndex !== index ? "edit" : "cancel"
-                    }}</span>
+    <div class="body-table">
+      <table class="todo-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Label</th>
+            <th>Status</th>
+            <th class="actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(todo, index) in todos" :key="index">
+            <td>{{ todo.name }}</td>
+            <td>{{ todo.label }}</td>
+            <td>{{ todoStatus(todo.done) }}</td>
+            <td class="actions">
+              <div class="d-flex">
+                <button @click="deleteTodo(index)" class="btn-delete">
+                  <div class="d-flex">
+                    <div><span class="material-icons">delete</span></div>
+                    <div class="pt-5">Delete</div>
                   </div>
-                  <div class="pt-5">{{ editButtonLabel(index) }}</div>
-                </div>
-              </button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                </button>
+                <button @click="editTodo(index, todo)" class="btn-update">
+                  <div class="d-flex">
+                    <div>
+                      <span class="material-icons">{{
+                        editIndex !== index ? "edit" : "cancel"
+                      }}</span>
+                    </div>
+                    <div class="pt-5">{{ editButtonLabel(index) }}</div>
+                  </div>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
