@@ -14,7 +14,7 @@
       />
       <label class="checkbox-label">
         <input type="checkbox" v-model="newTodo.done" class="checkbox-input" />
-        Done
+        {{newTodo.done ==true?'Done' : 'Not'}}
       </label>
       <button type="submit" class="btn-update">
         <div class="d-flex">
